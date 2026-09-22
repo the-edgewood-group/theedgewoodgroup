@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Edgewood Group — Executive Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Instrument+Serif:ital@0&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#070d1a;
+    --navy:#0b1626;
+    --navy-panel:#0f1e33;
+    --navy-line:#1c2c44;
+    --ink:#eef2f7;
+    --ink-dim:#a7b4c7;
+    --ink-faint:#6c7a91;
+    --signal:#6f9fe0;
+    --signal-soft:#3d5978;
+    --eggplant:#3d2245;
+    --eggplant-line:#4f3358;
+    --eggplant-light:#b28dc2;
+    --rosewood:#8f5566;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  .tagline{font-family:'Fraunces',serif;font-style:normal;font-weight:400;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px;}
+  @media(max-width:720px){.wrap{padding:0 22px;}}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,13,26,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--navy-line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
+  .brand{display:flex;flex-direction:column;line-height:1.05;}
+  .brand-name{font-family:'Fraunces',serif;font-size:22px;letter-spacing:0.04em;font-weight:500;}
+  .brand-sub{font-size:9.5px;letter-spacing:0.18em;color:var(--eggplant-light);margin-top:3px;}
+  .nav-links{display:flex;gap:36px;font-size:13.5px;color:var(--ink-dim);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    border:1px solid var(--navy-line);
+    padding:10px 20px;border-radius:2px;
+    font-size:13px;color:var(--ink);
+    display:flex;align-items:center;gap:8px;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{border-color:var(--signal);color:var(--signal);}
+  .nav-mobile-hide{display:flex;}
+  @media(max-width:860px){.nav-mobile-hide{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:100px 0 76px;
+    border-bottom:1px solid var(--navy-line);
+  }
+  .hero-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(var(--navy-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--navy-line) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.18;
+    mask-image:radial-gradient(ellipse 700px 500px at 78% 45%, black, transparent);
+  }
+  .hero-inner{position:relative;max-width:680px;}
+  .eyebrow{
+    font-size:12px;letter-spacing:0.14em;color:var(--rosewood);
+    margin-bottom:22px;font-weight:500;
+  }
+  .hero h1{
+    font-size:56px;line-height:1.06;color:var(--ink);
+    margin-bottom:26px;
+  }
+  .hero h1 em{font-style:italic;color:var(--signal);}
+  .hero-lede{font-size:18px;color:#cdd7e4;margin-bottom:16px;max-width:520px;}
+  .hero-sub{font-size:15px;color:var(--ink-dim);margin-bottom:36px;max-width:500px;}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--signal);color:#081120;
+    padding:14px 26px;border-radius:2px;
+    font-size:14px;font-weight:600;
+    transition:background 0.15s ease;
+  }
+  .btn-primary:hover{background:#84add8;}
+  .hero-tags{
+    display:flex;gap:0;margin-top:56px;
+    border-top:1px solid var(--navy-line);
+    padding-top:22px;font-size:11.5px;letter-spacing:0.08em;
+    color:var(--ink-faint);flex-wrap:wrap;
+  }
+  .hero-tags span{padding-right:18px;margin-right:18px;border-right:1px solid var(--navy-line);}
+  .hero-tags span:last-child{border-right:none;}
+  @media(max-width:720px){
+    .hero{padding:64px 0 48px;}
+    .hero h1{font-size:38px;}
+  }
+
+  /* ---------- SECTION BASICS ---------- */
+  section{padding:84px 0;border-bottom:1px solid var(--navy-line);}
+  .section-label{font-size:12px;letter-spacing:0.14em;color:var(--rosewood);margin-bottom:16px;font-weight:500;}
+  .section-head{font-size:32px;color:var(--ink);max-width:640px;}
+  @media(max-width:720px){section{padding:56px 0;} .section-head{font-size:26px;}}
+
+  /* ---------- CONTRAST BLOCK ---------- */
+  .contrast{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;}
+  .contrast h2{font-size:34px;color:var(--ink);line-height:1.18;}
+  .contrast h2 .dim{color:var(--ink-faint);}
+  .contrast .rule{width:52px;height:2px;background:var(--signal);margin:22px 0;}
+  .contrast .kicker{font-size:18px;color:var(--signal);font-family:'Fraunces',serif;font-style:italic;}
+  .contrast p{color:var(--ink-dim);font-size:15px;margin-bottom:12px;}
+  .contrast .close{color:var(--ink);font-weight:500;margin-top:18px;}
+  @media(max-width:860px){.contrast{grid-template-columns:1fr;gap:28px;}}
+
+  /* ---------- EXPERTISE ---------- */
+  .expertise-grid{
+    margin-top:54px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  }
+  .expertise-col{padding:0 32px;border-left:1px solid var(--navy-line);}
+  .expertise-col:first-child{padding-left:0;border-left:none;}
+  .expertise-num{font-family:'Fraunces',serif;font-size:15px;color:var(--signal-soft);margin-bottom:14px;}
+  .expertise-col h3{font-size:19px;color:var(--ink);margin-bottom:6px;font-weight:500;}
+  .expertise-tag{font-size:12px;color:var(--rosewood);letter-spacing:0.04em;margin-bottom:18px;}
+  .expertise-col ul{list-style:none;}
+  .expertise-col li{
+    font-size:14px;color:var(--ink-dim);padding:9px 0;
+    border-top:1px solid var(--navy-line);
+  }
+  .expertise-col li:first-of-type{border-top:none;}
+  @media(max-width:860px){
+    .expertise-grid{grid-template-columns:1fr;gap:36px;}
+    .expertise-col{border-left:none;padding-left:0;border-top:1px solid var(--navy-line);padding-top:32px;}
+    .expertise-col:first-child{border-top:none;padding-top:0;}
+  }
+  .expertise-grid-2{
+    margin-top:54px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  }
+  .expertise-grid-2 .expertise-col{padding:0 26px;}
+  .expertise-grid-2 .expertise-col:first-child{padding-left:0;}
+  @media(max-width:860px){
+    .expertise-grid-2{grid-template-columns:1fr 1fr;row-gap:36px;}
+    .expertise-grid-2 .expertise-col{border-left:none;padding-left:0;}
+    .expertise-grid-2 .expertise-col:nth-child(odd){border-left:none;}
+  }
+  @media(max-width:560px){
+    .expertise-grid-2{grid-template-columns:1fr;}
+    .expertise-grid-2 .expertise-col{border-top:1px solid var(--navy-line);padding-top:32px;border-left:none;padding-left:0;}
+    .expertise-grid-2 .expertise-col:first-child{border-top:none;padding-top:0;}
+  }
+
+  /* ---------- WHY ---------- */
+  .why-grid{margin-top:54px;display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .why-item .mark{
+    width:34px;height:34px;border:1px solid var(--signal-soft);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--signal);font-size:14px;margin-bottom:22px;font-family:'Fraunces',serif;
+  }
+  .why-item h3{font-size:15.5px;color:var(--ink);margin-bottom:10px;font-weight:500;letter-spacing:0.01em;}
+  .why-item p{font-size:13.5px;color:var(--ink-dim);line-height:1.55;}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr;row-gap:36px;}}
+  @media(max-width:520px){.why-grid{grid-template-columns:1fr;}}
+
+  /* ---------- APPROACH ---------- */
+  .approach-row{margin-top:54px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;}
+  .approach-step{position:relative;padding-right:22px;}
+  .approach-step:not(:last-child)::after{
+    content:"→";position:absolute;right:-4px;top:2px;color:var(--navy-line);font-size:14px;
+  }
+  .approach-num{font-family:'Fraunces',serif;font-size:26px;color:var(--signal-soft);margin-bottom:10px;}
+  .approach-step h3{font-size:13.5px;letter-spacing:0.06em;color:var(--ink);margin-bottom:10px;}
+  .approach-step p{font-size:13px;color:var(--ink-dim);line-height:1.55;padding-right:6px;}
+  @media(max-width:860px){
+    .approach-row{grid-template-columns:1fr 1fr;row-gap:32px;}
+    .approach-step::after{display:none;}
+  }
+  @media(max-width:520px){.approach-row{grid-template-columns:1fr;}}
+
+  /* ---------- FOUNDER ---------- */
+  .founder{background:var(--signal);border-bottom:1px solid rgba(7,13,26,0.15);}
+  .founder-grid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start;}
+  .founder-photo{
+    width:100%;aspect-ratio:3/3.6;
+    border:1px solid rgba(7,13,26,0.25);
+    overflow:hidden;
+  }
+  .founder-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:grayscale(15%);
+  }
+  .founder-eyebrow{font-size:12px;letter-spacing:0.14em;color:var(--rosewood);margin-bottom:10px;}
+  .founder-name{font-size:30px;color:#ffffff;margin-bottom:18px;}
+  .founder-quote{font-family:'Fraunces',serif;font-style:normal;font-size:19px;color:var(--navy-deep);line-height:1.4;margin-bottom:20px;max-width:480px;}
+  .founder p.body{font-size:14.5px;color:#ffffff;margin-bottom:14px;max-width:480px;}
+  @media(max-width:860px){
+    .founder-grid{grid-template-columns:1fr;gap:28px;}
+    .founder-photo{max-width:220px;aspect-ratio:3/3.6;}
+  }
+
+  /* ---------- CTA / FOOTER ---------- */
+  .cta-section{padding:80px 0 0;}
+  .cta-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;padding-bottom:56px;border-bottom:1px solid var(--navy-line);}
+  .cta-grid h2{font-size:34px;color:var(--ink);line-height:1.15;}
+  .cta-grid .btn-primary{margin-top:8px;}
+
+  footer{padding:40px 0;}
+  .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;}
+  .footer-brand{font-family:'Fraunces',serif;font-size:19px;}
+  .footer-brand .sub{display:block;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.18em;color:var(--eggplant-light);margin-top:4px;}
+  .footer-mid{display:flex;gap:20px;font-size:11.5px;letter-spacing:0.06em;color:var(--ink-faint);}
+  .footer-contact{font-size:13px;color:var(--ink-dim);text-align:right;}
+  .footer-contact .who{color:var(--ink);margin-bottom:2px;}
+  .footer-bottom{margin-top:32px;padding-top:20px;border-top:1px solid var(--navy-line);display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-faint);flex-wrap:wrap;gap:8px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">
+        <span class="brand-name">EDGEWOOD</span>
+        <span class="brand-sub">THE EDGEWOOD GROUP</span>
+      </div>
+      <div class="nav-links nav-mobile-hide">
+        <a href="#expertise">Expertise</a>
+        <a href="#approach">Approach</a>
+        <a href="#founder">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Start a Search →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-inner">
+    <h1>The right hire changes everything.</h1>
+    <p class="hero-lede tagline">Deep Experience. Earned Trust.</p>
+    <p class="hero-sub">The Edgewood Group is the trusted search partner for growing companies. Your goals become our goals. Your reputation becomes our responsibility. And we stay invested from the first conversation through the final hire.</p>
+    <a href="#contact" class="btn-primary">Start a Search →</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap contrast">
+    <div>
+      <h2>The best candidates aren't searching for a new job. <span class="dim">They're already succeeding at one.</span></h2>
+      <div class="rule"></div>
+      <p class="kicker">Reaching them takes more than a database.</p>
+    </div>
+    <div>
+      <p>Exceptional recruiting requires knowing the market, understanding what great looks like, and having the credibility to engage people who aren't looking to leave.</p>
+      <p>That's what a trusted network makes possible — and what The Edgewood Group has built over three decades.</p>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="section-label">WHAT WE KNOW</div>
+    <h2 class="section-head">Deep expertise where growth happens.</h2>
+    <div class="expertise-grid">
+      <div class="expertise-col">
+        <div class="expertise-num">01</div>
+        <h3>Go-to-Market</h3>
+        <div class="expertise-tag">Revenue &amp; growth</div>
+        <ul>
+          <li>CRO &amp; Revenue Leadership</li>
+          <li>VP / SVP Sales</li>
+          <li>Regional Sales Leadership</li>
+          <li>Enterprise &amp; Strategic Sales</li>
+          <li>Customer Success</li>
+          <li>Partnerships &amp; Alliances</li>
+          <li>Revenue Operations</li>
+        </ul>
+      </div>
+      <div class="expertise-col">
+        <div class="expertise-num">02</div>
+        <h3>Marketing</h3>
+        <div class="expertise-tag">Brand &amp; demand</div>
+        <ul>
+          <li>CMO</li>
+          <li>VP / SVP Marketing</li>
+          <li>Product Marketing</li>
+          <li>Demand Generation</li>
+          <li>Growth</li>
+          <li>Brand &amp; Communications</li>
+          <li>Content</li>
+        </ul>
+      </div>
+      <div class="expertise-col">
+        <div class="expertise-num">03</div>
+        <h3>Executive Search</h3>
+        <div class="expertise-tag">C-suite &amp; confidential</div>
+        <ul>
+          <li>C-Suite</li>
+          <li>President / GM</li>
+          <li>SVP / VP Leadership</li>
+          <li>Functional Executives</li>
+          <li>Transformational Leadership</li>
+          <li>Confidential Search</li>
+        </ul>
+      </div>
+    </div>
+    <div class="expertise-grid-2">
+      <div class="expertise-col">
+        <div class="expertise-num">04</div>
+        <h3>AI &amp; Machine Learning</h3>
+        <div class="expertise-tag">Where category leaders are built</div>
+        <ul>
+          <li>Chief AI Officer</li>
+          <li>VP / Head of AI</li>
+          <li>ML Engineering Leadership</li>
+          <li>AI Product Leadership</li>
+          <li>Applied AI &amp; Research</li>
+        </ul>
+      </div>
+      <div class="expertise-col">
+        <div class="expertise-num">05</div>
+        <h3>Data Science</h3>
+        <div class="expertise-tag">Insight &amp; infrastructure</div>
+        <ul>
+          <li>VP / Head of Data Science</li>
+          <li>Data Science Leadership</li>
+          <li>Analytics Leadership</li>
+          <li>Data Engineering Leadership</li>
+          <li>BI &amp; Insights</li>
+        </ul>
+      </div>
+      <div class="expertise-col">
+        <div class="expertise-num">06</div>
+        <h3>Quantitative Finance</h3>
+        <div class="expertise-tag">Risk &amp; research</div>
+        <ul>
+          <li>Head of Quant Research</li>
+          <li>Portfolio Management</li>
+          <li>Risk Leadership</li>
+          <li>Quantitative Trading</li>
+          <li>Financial Engineering</li>
+        </ul>
+      </div>
+      <div class="expertise-col">
+        <div class="expertise-num">07</div>
+        <h3>People &amp; Talent</h3>
+        <div class="expertise-tag">Culture &amp; capability</div>
+        <ul>
+          <li>CHRO</li>
+          <li>VP People</li>
+          <li>VP Talent Acquisition</li>
+          <li>Head of L&amp;D</li>
+          <li>Total Rewards</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">WHY EDGEWOOD</div>
+    <h2 class="section-head tagline">Deep Experience. Earned Trust.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="mark">01</div>
+        <h3>We know the market</h3>
+        <p>Decades of recruiting experience create pattern recognition that technology can't replicate.</p>
+      </div>
+      <div class="why-item">
+        <div class="mark">02</div>
+        <h3>We find the unfindable</h3>
+        <p>Our searches are built around proactive market mapping and direct engagement.</p>
+      </div>
+      <div class="why-item">
+        <div class="mark">03</div>
+        <h3>We understand the business</h3>
+        <p>We start with the outcome the company needs to achieve and work backward to the talent capable of delivering it.</p>
+      </div>
+      <div class="why-item">
+        <div class="mark">04</div>
+        <h3>We partner like owners</h3>
+        <p>We operate as an extension of your team, with a commitment to confidentiality, clarity, and results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="section-label">THE EDGEWOOD APPROACH</div>
+    <h2 class="section-head">Search with intention.</h2>
+    <div class="approach-row">
+      <div class="approach-step">
+        <div class="approach-num">01</div>
+        <h3>UNDERSTAND</h3>
+        <p>The business, the market, the challenge, and what success actually looks like.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">02</div>
+        <h3>MAP</h3>
+        <p>The organizations and talent pools most likely to produce exceptional candidates.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">03</div>
+        <h3>ENGAGE</h3>
+        <p>Directly approach high-value talent — including people who aren't actively looking.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">04</div>
+        <h3>ASSESS</h3>
+        <p>Evaluate against clearly defined business outcomes and success criteria.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">05</div>
+        <h3>CLOSE</h3>
+        <p>Partner through selection, negotiation, offer, and acceptance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder" id="founder">
+  <div class="wrap founder-grid">
+    <div class="founder-photo"><img src="laura-price-edgewood-group.webp" alt="Laura Price, Founder of The Edgewood Group" loading="lazy" width="590" height="786" decoding="async"></div>
+    <div>
+      <div class="founder-eyebrow">FOUNDER</div>
+      <h2 class="founder-name">Laura Price</h2>
+      <p class="founder-quote">Three decades. Thousands of conversations. One standard: find exceptional people.</p>
+      <p class="body">I've spent more than 30 years in recruiting and executive search, partnering with leaders to build teams that move businesses forward.</p>
+      <p class="body">My career has given me a front-row seat to what separates good talent from transformational talent — and what separates recruiting activity from results. Edgewood was built around a simple philosophy: every search deserves senior-level attention, honest counsel, and relentless execution.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="wrap">
+    <div class="cta-grid">
+      <h2>Let's find your next hire.</h2>
+      <a href="mailto:laura@theedgewoodgroup.com" class="btn-primary">Start a Search →</a>
+    </div>
+  </div>
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">EDGEWOOD<span class="sub">THE EDGEWOOD GROUP</span></div>
+        <div class="footer-mid">
+          <span>EXECUTIVE SEARCH</span>
+        </div>
+        <div class="footer-contact">
+          <div class="who">Laura Price</div>
+          <div>Founder</div>
+          <div>laura@theedgewoodgroup.com</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 The Edgewood Group. All rights reserved.</span>
+        <span>Privacy Policy</span>
+      </div>
+    </div>
+  </footer>
+</section>
+
+</body>
+</html>
