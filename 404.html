@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+// GitHub Pages project sites serve this file at any unmatched path, so compute
+// the correct site root here rather than relying on root-absolute paths.
+(function () {
+  var seg = location.hostname.endsWith('github.io') ? location.pathname.split('/')[1] : '';
+  if (seg) document.write('<base href="/' + seg + '/">');
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
 <meta name="description" content="The requested page could not be found.">
@@ -25,9 +33,9 @@
 <meta name="twitter:image" content="https://www.theedgewoodgroup.com/edgewood-social-share.webp">
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/svg+xml" href="favicon-light.svg" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="favicon-dark.svg" media="(prefers-color-scheme: dark)">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GH4WGNGPZY"></script>
@@ -41,14 +49,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Instrument+Serif:ital@0&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="not-found-page">
 
 <header>
   <div class="wrap">
     <nav>
-      <a href="/" class="brand">
+      <a href="./" class="brand">
         <span class="brand-name">EDGEWOOD</span>
         <span class="brand-sub">THE EDGEWOOD GROUP</span>
       </a>
@@ -64,14 +72,14 @@
     <div class="eyebrow">PAGE NOT FOUND</div>
     <h1>This page has moved beyond reach.</h1>
     <p>The address may be incorrect, or the page may no longer exist. Let&rsquo;s get you back to familiar ground.</p>
-    <a href="/" class="btn-primary">Return home →</a>
+    <a href="./" class="btn-primary">Return home →</a>
   </div>
 </main>
 
 <footer>
   <div class="wrap">
     <div class="footer-grid">
-      <div class="footer-brand"><a href="/">EDGEWOOD<span class="sub">THE EDGEWOOD GROUP</span></a></div>
+      <div class="footer-brand"><a href="./">EDGEWOOD<span class="sub">THE EDGEWOOD GROUP</span></a></div>
       <div class="footer-mid">
         <span>EXECUTIVE SEARCH</span>
       </div>
@@ -83,7 +91,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; <span id="current-year"></span> The Edgewood Group. All rights reserved.</span>
-      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="privacy-policy/">Privacy Policy</a>
     </div>
   </div>
 </footer>
